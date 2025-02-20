@@ -50,7 +50,7 @@ app.use((error, req, res, next) => {
 
 // mongodb+srv://oksoft_user:<db_password>@testdb.9kj7s.mongodb.net/?retryWrites=true&w=majority&appName=testdb
 mongoose
-  .connect( `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@testdb.9kj7s.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=${process.env.DB_NAME}`
+  .connect( `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@testdb.9kj7s.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority}`
 )
 .then(() => {
   app.listen(port);
