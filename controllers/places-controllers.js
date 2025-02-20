@@ -102,32 +102,32 @@ const createPlace = async (req, res, next) => {
     );
     return next(error);
   }
-console.log("1");
+//console.log("1");
   if (!user) {
     const error = new HttpError('Could not find user for provided id.', 404);
     return next(error);
   }
 
-  console.log(user);
-  console.log("2");
+ // console.log(user);
+ // console.log("2");
   try {
     const sess = await mongoose.startSession();
-    console.log("21");
+   // console.log("21");
     //console.log(sess);
     sess.startTransaction();
-    console.log("22");
-    console.log(createdPlace);
+  //  console.log("22");
+   // console.log(createdPlace);
     await createdPlace.save({ session: sess });
-    console.log("23");
+   // console.log("23");
     user.places.push(createdPlace);
-    console.log("24");
+   // console.log("24");
     await user.save({ session: sess });
     console.log("25");
     await sess.commitTransaction();
-    console.log("26");
+   // console.log("26");
   } catch (err) {
-    console.log("3");
-    console.log(err);
+  //  console.log("3");
+  //  console.log(err);
     
     const error = new HttpError(
       'Creating place failed, please try again.',
