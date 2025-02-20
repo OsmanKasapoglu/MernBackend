@@ -10,6 +10,7 @@ const usersRoutes = require('./routes/users-routes');
 const HttpError = require('./models/http-error');
 
 const app = express();
+const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 
@@ -51,7 +52,7 @@ mongoose
   .connect( `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@testdb.9kj7s.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=testdb`
 )
 .then(() => {
-  app.listen(process.env.PORT, 5000);
+  app.listen(port);
 })
 .catch(err => {
   console.log(err);
